@@ -17,11 +17,11 @@ class Hue{
     TurnOnlights(sinal,lights) {
         this.model.on = sinal;
         http.put(host + user +"/lights/"+ lights + "/state/",this.model).then(rsp =>{  
-        });
+        }); 
     }
     
-    dimLights(hp,OnLights,lights){
-        var dim =Math.round((hp/100)*255);
+    dimLights(percentage,OnLights,lights){
+        var dim =Math.round((percentage/100)*255);
         this.model.bri = dim;
         this.model.on = OnLights;
         http.put(host + user +"/lights/"+ lights + "/state/",this.model).then(rsp =>{  
