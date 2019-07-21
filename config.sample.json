@@ -1,4 +1,8 @@
 {
     "TOKEN": USERNAME of hue brige,
-    "URL": URL for Brige
+    "URL": URL for Brige,
+    "lights":idLamp,
+    "MaxDim":MaxDIM,
+    "HPCOLOR":COLOR FOR HP,
+    "MANACOLOR":COLOR FOR MANA
 }

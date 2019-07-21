@@ -1,6 +1,7 @@
 var dotaobj = require('./Dota_Info');
 var d2gsi = require('dota2-gsi');
 var Hue = require('./Hue_Controller');
+var config = require("./config.json");
 var server = new d2gsi();
 
 server.events.on('newclient', async function(client) {
@@ -25,18 +26,12 @@ server.events.on('newclient', async function(client) {
         dotaobj.isdaytime = time;
     }); 
 
-    dotaobj.herohealth = client.gamestate.hero.health_percent;
-    dotaobj.heromana = client.gamestate.hero.mana_percent;
-    dotaobj.level = client.gamestate.hero.level;
-    dotaobj.isdaytime = client.gamestate.map.isdaytime;
-
     setInterval(() => {
         if(dotaobj.herohealth <= 23){
-            hue.dimLights(null,false,3);
+           
         }else{
-            hue.dimLights(dotaobj.herohealth,true,3);
+            hue.colorLights(config.HPCOLOR,config.lights,dotaobj.herohealth,100);
         }
-
     }, 100);
 
 });
